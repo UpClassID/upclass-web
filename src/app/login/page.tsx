@@ -1,7 +1,8 @@
 "use client";
 
-import { Button } from "antd";
+import { Button, Card, Checkbox, Col, Input, Row } from "antd";
 import { motion, useAnimationControls } from "framer-motion";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Login() {
@@ -35,9 +36,68 @@ export default function Login() {
         initial={{ x: windowWidth * -0.5 }}
         style={{ width: "150vw", height: "100vh", display: "flex" }}
       >
-        <div style={{ width: "50%", height: "100vh" }}>
-          Register <Button onClick={() => setIsRegister(false)}>Login</Button>
+        <div
+          style={{
+            width: "50%",
+            height: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "#f5f5f5",
+          }}
+        >
+          <Card
+            className="rounded-[24px] drop-shadow-lg"
+            style={{ width: "30vw" }}
+          >
+            <div>Image</div>
+            <div className="text-center">Sign Up</div>
+            <div className="text-center">Start your journey with us</div>
+            <div className="my-3">
+              Full Name
+              <Input placeholder="Enter your full name..." />
+            </div>
+            <div className="my-3">
+              E-Mail Address
+              <Input placeholder="Enter your email..." />
+            </div>
+            <div className="my-3">
+              Password
+              <Input.Password placeholder="Enter your password..." />
+            </div>
+            <Row className="my-3">
+              <Col span={24}>
+                <Checkbox>
+                  I agree to all the{" "}
+                  <span className="hover:underline cursor-pointer">
+                    Privacy Policy
+                  </span>{" "}
+                  and{" "}
+                  <span className="hover:underline cursor-pointer">
+                    Terms of Use
+                  </span>
+                </Checkbox>
+              </Col>
+            </Row>
+            <Row className="my-3">
+              <Col span={24}>
+                <Button className="w-full">Continue</Button>
+              </Col>
+            </Row>
+            <div className="text-center">
+              Have an account?{" "}
+              <span
+                className="hover:underline cursor-pointer"
+                onClick={() => {
+                  setIsRegister(false);
+                }}
+              >
+                Sign In
+              </span>
+            </div>
+          </Card>
         </div>
+
         <div style={{ width: "50%", height: "100vh", display: "flex" }}>
           <img
             src="login.jpg"
@@ -48,16 +108,59 @@ export default function Login() {
           />
         </div>
 
-        <div style={{ width: "50%", height: "100vh" }}>
-          Login{" "}
-          <Button
-            onClick={() => {
-              setIsRegister(true);
-              setFirstAnimation(false);
-            }}
+        <div
+          style={{
+            width: "50%",
+            height: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "#f5f5f5",
+          }}
+        >
+          <Card
+            className="rounded-[24px] drop-shadow-lg"
+            style={{ width: "30vw" }}
           >
-            Register
-          </Button>
+            <div>Image</div>
+            <div className="text-center">Welcome back!</div>
+            <div className="text-center">
+              Please enter your details to sign in
+            </div>
+            <div className="my-3">
+              E-Mail Address
+              <Input placeholder="Enter your email..." />
+            </div>
+            <div className="my-3">
+              Password
+              <Input.Password placeholder="Enter your password..." />
+            </div>
+            <Row className="my-3">
+              <Col span={12} className="flex justify-start">
+                <Checkbox>Remember me</Checkbox>
+              </Col>
+              <Col span={12} className="flex justify-end">
+                <Link href="/">Forgot password?</Link>
+              </Col>
+            </Row>
+            <Row className="my-3">
+              <Col span={24}>
+                <Button className="w-full">Sign in</Button>
+              </Col>
+            </Row>
+            <div className="text-center">
+              Don't have account yet?{" "}
+              <span
+                className="hover:underline cursor-pointer"
+                onClick={() => {
+                  setIsRegister(true);
+                  setFirstAnimation(false);
+                }}
+              >
+                Sign Up
+              </span>
+            </div>
+          </Card>
         </div>
       </motion.div>
     </div>

@@ -36,7 +36,9 @@ export default function Landing({ children }: { children: React.ReactNode }) {
             </Link>
           </Col>
           <Col span={6} className="flex justify-end items-center">
-            <Button type="text">Sign in</Button>
+            <Button type="text" href="/login">
+              Sign in
+            </Button>
           </Col>
         </Row>
       </Header>
