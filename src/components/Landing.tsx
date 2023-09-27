@@ -1,6 +1,7 @@
+import Link from "next/link";
 import "../styles/landing.css";
 
-import { Col, Layout, Row } from "antd";
+import { Button, Col, Layout, Row } from "antd";
 
 const { Header, Footer, Content } = Layout;
 
@@ -9,14 +10,33 @@ export default function Landing({ children }: { children: React.ReactNode }) {
     <Layout>
       <Header className="landing-header">
         <Row>
-          <Col span={6} className="flex justify-start">
-            UpClass Icon
+          <Col span={6} className="flex justify-start items-center">
+            <img
+              src="logo-upclass.png"
+              alt="logo-upclass"
+              width={100}
+              height={10}
+            />
           </Col>
           <Col span={12} className="flex justify-center">
-            Menu
+            <Link href="/" className="mx-5">
+              Home
+            </Link>
+            <Link href="/about" className="mx-5">
+              About
+            </Link>
+            <Link href="/services" className="mx-5">
+              Services
+            </Link>
+            <Link href="/pricing" className="mx-5">
+              Pricing
+            </Link>
+            <Link href="/contact" className="mx-5">
+              Contact
+            </Link>
           </Col>
-          <Col span={6} className="flex justify-end">
-            Login
+          <Col span={6} className="flex justify-end items-center">
+            <Button type="text">Sign in</Button>
           </Col>
         </Row>
       </Header>
