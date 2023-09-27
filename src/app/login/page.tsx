@@ -2,6 +2,7 @@
 
 import { Button, Card, Checkbox, Col, Input, Row } from "antd";
 import { motion, useAnimationControls } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -10,6 +11,22 @@ export default function Login() {
   const [firstAnimation, setFirstAnimation] = useState(true);
   const [isRegister, setIsRegister] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      console.log(windowWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup function to remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [windowWidth]);
+
+
 
   useEffect(() => {
     if (!firstAnimation) {
@@ -27,7 +44,7 @@ export default function Login() {
         }));
       }
     }
-  }, [isRegister]);
+  }, [controls, firstAnimation, isRegister, windowWidth]);
 
   return (
     <div style={{ overflow: "hidden" }}>
@@ -99,12 +116,15 @@ export default function Login() {
         </div>
 
         <div style={{ width: "50%", height: "100vh", display: "flex" }}>
-          <img
-            src="login.jpg"
+          <Image
+            width={400}
+            height={400}
+            src="/login.jpg"
             alt="login"
             style={{
               objectFit: "cover",
             }}
+            className="object-cover  w-full h-full"
           />
         </div>
 
@@ -149,7 +169,7 @@ export default function Login() {
               </Col>
             </Row>
             <div className="text-center">
-              Don't have account yet?{" "}
+              Don&pos;t have account yet?{" "}
               <span
                 className="hover:underline cursor-pointer"
                 onClick={() => {

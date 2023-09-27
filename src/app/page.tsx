@@ -5,17 +5,17 @@ import { Row, Col, Button } from "antd";
 
 export default function Home() {
   return (
-    <main className="w-screen min-h-screen">
+    <main className="min-h-screen">
       <Landing>
-        <Row className="w-screen h-screen">
+        <Row className="h-screen">
           <Col span={24} className="flex items-center justify-center">
             <Row>
               <Col>
                 <h1 className="text-center text-8xl font-bold">
-                  Empower your organization's growth
+                  Empower your organization&apos;s growth
                 </h1>
                 <p>
-                  Our team's design brilliance is matched by our no-code
+                  Our teams design brilliance is matched by our no-code
                   wizardry, resulting in exceptional products that are both
                   visually stunning and technically robust - with no-code.
                 </p>
