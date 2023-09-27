@@ -1,9 +1,13 @@
-import Image from 'next/image'
+"use client";
+
+import Landing from "@/components/Landing";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-     testing
+    <main className="w-screen min-h-screen">
+      <Landing>
+        <div>Content will be here</div>
+      </Landing>
     </main>
-  )
+  );
 }
