@@ -19,7 +19,6 @@ export default function Login() {
 
     window.addEventListener("resize", handleResize);
 
-    // Cleanup function to remove the event listener when the component unmounts
     return () => {
       window.removeEventListener("resize", handleResize);
     };

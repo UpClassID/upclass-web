@@ -8,8 +8,8 @@ const { Header, Footer, Content } = Layout;
 export default function Landing({ children }: { children: React.ReactNode }) {
   return (
     <Layout>
-      <Header className="landing-header">
-        <Row>
+      <Header className="landing-header flex items-center">
+        <Row className="grow">
           <Col span={6} className="flex justify-start items-center">
             <img
               src="logo-upclass.png"
@@ -18,7 +18,7 @@ export default function Landing({ children }: { children: React.ReactNode }) {
               height={10}
             />
           </Col>
-          <Col span={12} className="flex justify-center">
+          <Col span={12} className="flex justify-center items-center">
             <Link href="/" className="mx-5">
               Home
             </Link>
