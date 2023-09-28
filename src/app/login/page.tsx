@@ -15,30 +15,29 @@ export default function Login() {
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
-      console.log(windowWidth);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Cleanup function to remove the event listener when the component unmounts
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, [windowWidth]);
-
-
 
   useEffect(() => {
     if (!firstAnimation) {
       if (isRegister) {
         controls.start(() => ({
           x: 0,
-          initial: { x: windowWidth * -0.5 },
+          initial: {
+            x: windowWidth < 1080 ? windowWidth * -1 : windowWidth * -0.5,
+          },
           transition: { delay: 0.5, duration: 1.5 },
         }));
       } else {
         controls.start(() => ({
-          x: windowWidth * -0.5,
+          x: windowWidth < 1080 ? windowWidth * -1 : windowWidth * -0.5,
           initial: { x: 0 },
           transition: { delay: 0.5, duration: 1.5 },
         }));
@@ -50,8 +49,14 @@ export default function Login() {
     <div style={{ overflow: "hidden" }}>
       <motion.div
         animate={controls}
-        initial={{ x: windowWidth * -0.5 }}
-        style={{ width: "150vw", height: "100vh", display: "flex" }}
+        initial={{
+          x: windowWidth < 1080 ? windowWidth * -1 : windowWidth * -0.5,
+        }}
+        style={{
+          width: windowWidth < 1080 ? "200vw" : "150vw",
+          height: "100vh",
+          display: "flex",
+        }}
       >
         <div
           style={{
@@ -65,7 +70,7 @@ export default function Login() {
         >
           <Card
             className="rounded-[24px] drop-shadow-lg"
-            style={{ width: "30vw" }}
+            style={{ width: windowWidth < 1080 ? "80vw" : "30vw" }}
           >
             <div>Image</div>
             <div className="text-center">Sign Up</div>
@@ -115,7 +120,13 @@ export default function Login() {
           </Card>
         </div>
 
-        <div style={{ width: "50%", height: "100vh", display: "flex" }}>
+        <div
+          style={{
+            width: windowWidth < 1080 ? "0" : "50%",
+            height: "100vh",
+            display: windowWidth < 1080 ? "none" : "flex",
+          }}
+        >
           <Image
             width={400}
             height={400}
@@ -140,7 +151,7 @@ export default function Login() {
         >
           <Card
             className="rounded-[24px] drop-shadow-lg"
-            style={{ width: "30vw" }}
+            style={{ width: windowWidth < 1080 ? "80vw" : "30vw" }}
           >
             <div>Image</div>
             <div className="text-center">Welcome back!</div>
