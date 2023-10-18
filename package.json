@@ -3,17 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.0.0",
+    "@tanstack/react-query-devtools": "^5.0.0",
+    "@tanstack/react-query-next-experimental": "^5.0.0",
     "antd": "^5.9.3",
+    "axios": "^1.5.1",
+    "cookies-next": "^4.0.0",
     "framer-motion": "^10.16.4",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-query": "^3.39.3"
   },
   "devDependencies": {
     "@types/node": "latest",

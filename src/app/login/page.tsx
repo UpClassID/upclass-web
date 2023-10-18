@@ -1,5 +1,6 @@
 "use client";
 
+import { useLogin } from "@/api/auth/login";
 import { Button, Card, Checkbox, Col, Input, Row } from "antd";
 import { motion, useAnimationControls } from "framer-motion";
 import Image from "next/image";
@@ -11,6 +12,24 @@ export default function Login() {
   const [firstAnimation, setFirstAnimation] = useState(true);
   const [isRegister, setIsRegister] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const login = useLogin();
+
+  const [formValues, setFormValues] = useState({
+    email: '',
+    password: '',
+  })
+
+  const handleFormChange = (e: any) => {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleLogin = () => {
+    login.mutate(formValues)
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -159,11 +178,17 @@ export default function Login() {
             </div>
             <div className="my-3">
               E-Mail Address
-              <Input placeholder="Enter your email..." />
+              <Input placeholder="Enter your email..."
+                name="email"
+                onChange={handleFormChange}
+              />
             </div>
             <div className="my-3">
               Password
-              <Input.Password placeholder="Enter your password..." />
+              <Input.Password placeholder="Enter your password..."
+                name="password"
+                onChange={handleFormChange}
+              />
             </div>
             <Row className="my-3">
               <Col span={12} className="flex justify-start">
@@ -175,7 +200,9 @@ export default function Login() {
             </Row>
             <Row className="my-3">
               <Col span={24}>
-                <Button className="w-full">Sign in</Button>
+                <Button className="w-full"
+                  onClick={handleLogin}
+                >Sign in</Button>
               </Col>
             </Row>
             <div className="text-center">
