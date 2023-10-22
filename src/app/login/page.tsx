@@ -5,6 +5,7 @@ import { Button, Card, Checkbox, Col, Input, Row } from "antd";
 import { motion, useAnimationControls } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Login() {
@@ -16,20 +17,20 @@ export default function Login() {
   const login = useLogin();
 
   const [formValues, setFormValues] = useState({
-    email: '',
-    password: '',
-  })
+    email: "",
+    password: "",
+  });
 
   const handleFormChange = (e: any) => {
     setFormValues({
       ...formValues,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleLogin = () => {
-    login.mutate(formValues)
-  }
+    login.mutate(formValues);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -90,6 +91,7 @@ export default function Login() {
             className="rounded-[24px] drop-shadow-lg"
             style={{ width: windowWidth < 1080 ? "80vw" : "30vw" }}
           >
+            <Link href="/">Back to Website</Link>
             <div>Image</div>
             <div className="text-center">Sign Up</div>
             <div className="text-center">Start your journey with us</div>
@@ -171,6 +173,7 @@ export default function Login() {
             className="rounded-[24px] drop-shadow-lg"
             style={{ width: windowWidth < 1080 ? "80vw" : "30vw" }}
           >
+            <Link href="/">Back to Website</Link>
             <div>Image</div>
             <div className="text-center">Welcome back!</div>
             <div className="text-center">
@@ -178,14 +181,16 @@ export default function Login() {
             </div>
             <div className="my-3">
               E-Mail Address
-              <Input placeholder="Enter your email..."
+              <Input
+                placeholder="Enter your email..."
                 name="email"
                 onChange={handleFormChange}
               />
             </div>
             <div className="my-3">
               Password
-              <Input.Password placeholder="Enter your password..."
+              <Input.Password
+                placeholder="Enter your password..."
                 name="password"
                 onChange={handleFormChange}
               />
@@ -195,18 +200,18 @@ export default function Login() {
                 <Checkbox>Remember me</Checkbox>
               </Col>
               <Col span={12} className="flex justify-end">
-                <Link href="/">Forgot password?</Link>
+                <Link href="/forgot-password">Forgot password?</Link>
               </Col>
             </Row>
             <Row className="my-3">
               <Col span={24}>
-                <Button className="w-full"
-                  onClick={handleLogin}
-                >Sign in</Button>
+                <Button className="w-full" onClick={handleLogin}>
+                  Sign in
+                </Button>
               </Col>
             </Row>
             <div className="text-center">
-              Don&pos;t have account yet?{" "}
+              Don&apos;t have account yet?{" "}
               <span
                 className="hover:underline cursor-pointer"
                 onClick={() => {

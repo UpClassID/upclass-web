@@ -1,8 +1,23 @@
 .landing-header {
-  background-color: transparent;
   width: 100%;
   height: 80px;
   position: fixed;
   top: 0;
   z-index: 10;
+}
+
+.whatsapp-float {
+  position: fixed;
+  background: #25d366;
+  color: #fff;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+  right: 15px;
+  bottom: 70px;
+  border-radius: 50%;
+  z-index: 11;
 }

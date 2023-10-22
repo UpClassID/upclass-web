@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.2.6",
     "@tanstack/react-query": "^5.0.0",
     "@tanstack/react-query-devtools": "^5.0.0",
     "@tanstack/react-query-next-experimental": "^5.0.0",
@@ -16,9 +17,13 @@
     "axios": "^1.5.1",
     "cookies-next": "^4.0.0",
     "framer-motion": "^10.16.4",
+    "jsonwebtoken": "^9.0.2",
     "next": "latest",
+    "next-auth": "^4.24.3",
     "react": "latest",
     "react-dom": "latest",
+    "react-highlight-words": "^0.20.0",
+    "react-hook-form": "^7.47.0",
     "react-query": "^3.39.3"
   },
   "devDependencies": {

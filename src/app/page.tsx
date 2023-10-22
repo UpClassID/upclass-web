@@ -1,25 +1,10 @@
 "use client";
 
 import Landing from "@/components/Landing";
+import { BulbTwoTone, MailTwoTone, StarTwoTone } from "@ant-design/icons";
 import { Row, Col, Button, Card } from "antd";
-import { useCallback, useEffect, useState } from "react";
 
 export default function Home() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrollY(window.pageYOffset);
-      console.log(scrollY);
-    };
-
-    window.addEventListener("scroll", onScroll);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, [scrollY]);
-
   return (
     <main className="min-h-screen">
       <Landing>
@@ -37,7 +22,7 @@ export default function Home() {
               </p>
               <div className="flex justify-center">
                 <Button type="primary" size="large" className="mx-3">
-                  Check our services
+                  Check Our Services
                 </Button>
                 <Button size="large" className="mx-3">
                   View Pricing
@@ -49,7 +34,7 @@ export default function Home() {
         <Row className="h-80">
           <Col span={24} className="flex items-center justify-center">
             <div className="w-4/5">
-              <p className="text-center text-base font-bold mb-3">
+              <p className="text-center text-base font-semibold mb-3">
                 Trusted by some exceptional startups
               </p>
               <div className="flex justify-center align-middle">
@@ -99,22 +84,62 @@ export default function Home() {
                 Say Goodbye to Your Worries
               </h1>
               <p className="text-center text-base sm:text-xl mb-5">
-                Just create tasks and watch them get done. It's that easy.
+                Just create courses and watch them get done. It's that easy.
               </p>
               <Row gutter={16}>
-                <Col span={8}>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={8}
+                  className="flex my-1"
+                >
                   <Card>
-                    <p>Card content</p>
+                    <div className="w-12 h-12 shadow rounded-full p-3 flex items-center justify-center mb-3">
+                      <MailTwoTone className="text-lg" />
+                    </div>
+                    <h3 className="text-lg font-bold">Subscribe to a plan</h3>
+                    <p>
+                      Subscribe to a plan and create as many tasks as you need
+                    </p>
                   </Card>
                 </Col>
-                <Col span={8}>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={8}
+                  className="flex my-1"
+                >
                   <Card>
-                    <p>Card content</p>
+                    <div className="w-12 h-12 shadow rounded-full p-3 flex items-center justify-center mb-3">
+                      <StarTwoTone className="text-lg" />
+                    </div>
+                    <h3 className="text-lg font-bold">Receive your design</h3>
+                    <p>
+                      Receive your design within a few business days on average,
+                      Monday to Friday.
+                    </p>
                   </Card>
                 </Col>
-                <Col span={8}>
+                <Col
+                  xs={24}
+                  sm={24}
+                  md={24}
+                  lg={8}
+                  xl={8}
+                  className="flex my-1"
+                >
                   <Card>
-                    <p>Card content</p>
+                    <div className="w-12 h-12 shadow rounded-full p-3 flex items-center justify-center mb-3">
+                      <BulbTwoTone className="text-lg" />
+                    </div>
+                    <h3 className="text-lg font-bold">
+                      Perfect design you like
+                    </h3>
+                    <p>We'll revise the designs until you're 100% satisfied.</p>
                   </Card>
                 </Col>
               </Row>
